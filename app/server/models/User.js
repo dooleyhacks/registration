@@ -13,6 +13,12 @@ var profile = {
     max: 100,
   },
 
+  adult: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+
   school: {
     type: String,
     min: 1,
@@ -22,7 +28,7 @@ var profile = {
   graduationYear: {
     type: String,
     enum: {
-      values: '2021 2022 2023 2024'.split(' '),
+      values: '2016 2017 2018 2019'.split(' '),
     }
   },
 
@@ -58,6 +64,8 @@ var confirmation = {
       values: 'XS S M L XL XXL WXS WS WM WL WXL WXXL'.split(' ')
     }
   },
+  wantsHardware: Boolean,
+  hardware: String,
 
   major: String,
   github: String,
@@ -65,6 +73,7 @@ var confirmation = {
   website: String,
   resume: String,
 
+  needsReimbursement: Boolean,
   address: {
     name: String,
     line1: String,
@@ -75,6 +84,13 @@ var confirmation = {
     country: String
   },
   receipt: String,
+
+  hostNeededFri: Boolean,
+  hostNeededSat: Boolean,
+  genderNeutral: Boolean,
+  catFriendly: Boolean,
+  smokingFriendly: Boolean,
+  hostNotes: String,
 
   notes: String,
 
@@ -126,6 +142,10 @@ var status = {
   },
   confirmBy: {
     type: Number
+  },
+  reimbursementGiven: {
+    type: Boolean,
+    default: false
   }
 };
 
