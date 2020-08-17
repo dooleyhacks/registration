@@ -110,10 +110,10 @@
           name="year"
           ng-model="selectedUser.profile.graduationYear">
           <option value="">Graduation Year</option>
-          <option value="2021">2021</option>
-          <option value="2022">2022</option>
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
         </select>
       </div>
 
@@ -139,10 +139,27 @@
 
       <div class="field">
         <label>
-            What would you like to learn or get out of DooleyHacks? (optional)
+            What would you like to learn or get out of HackMIT? (optional)
         </label>
         <textarea ng-model="selectedUser.profile.essay">
         </textarea>
+      </div>
+
+      <div class="field"
+           ng-hide="isMitStudent">
+        <p>
+          Because of limitations imposed by MIT, we are not legally allowed to host
+          non-MIT minors (those under 18) for HackMIT 2015. Checking the box below affirms that you are or will be 18 years or older by September 19th, 2015.
+        </p>
+        <p>
+          <strong>
+          We will be checking ID. If you are a non-MIT minor, you will be turned away at the door.
+          </strong>
+        </p>
+        <div class="ui checkbox">
+          <input type="checkbox" id="adult" ng-model="selectedUser.profile.adult">
+          <label for="adult">I am 18 or older.</label>
+        </div>
       </div>
 
       <div class="field">
@@ -173,6 +190,12 @@
       </div>
 
       <div class="field">
+        <label> Dietary Restrictions </label>
+        <input
+          type="text" ng-model="selectedUser.confirmation.dietaryRestrictions" />
+      </div>
+
+      <div class="field">
         <label> Shirt Size </label>
         <input type="text" ng-model="selectedUser.profile.shirtSize" />
       </div>
@@ -199,8 +222,110 @@
 
       <div class="ui divider"></div>
 
+      <div class="field">
+        <label>
+          Needs Hardware
+        </label>
+        <div class="ui checkbox">
+          <input type="checkbox" ng-model="selectedUser.confirmation.wantsHardware">
+          <label> Yup, I need hardware </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>
+        Hardware
+        </label>
+        <input type="text" ng-model="selectedUser.confirmation.hardware">
+      </div>
+
+      <div class="ui divider"></div>
+
       <div class="ui header">
-        Address
+        Hosting
+      </div>
+
+      <div class="field">
+        <strong> Needs Hosting Friday </strong>
+        <i
+          ng-if="selectedUser.confirmation.hostNeededFri"
+          class="green check circle icon">
+        </i>
+        <i
+          ng-if="!selectedUser.confirmation.hostNeededFri"
+          class="red remove circle icon">
+        </i>
+      </div>
+
+      <div class="field">
+        <strong> Needs Hosting Saturday </strong>
+        <i
+          ng-if="selectedUser.confirmation.hostNeededSat"
+          class="green check circle icon">
+        </i>
+        <i
+          ng-if="!selectedUser.confirmation.hostNeededSat"
+          class="red remove circle icon">
+        </i>
+      </div>
+
+      <div class="field">
+        <strong> Gender Neutral </strong>
+        <i
+          ng-if="selectedUser.confirmation.genderNeutral"
+          class="green check circle icon">
+        </i>
+        <i
+          ng-if="!selectedUser.confirmation.genderNeutral"
+          class="red remove circle icon">
+        </i>
+      </div>
+
+      <div class="field">
+        <strong> Cat Friendly </strong>
+        <i
+          ng-if="selectedUser.confirmation.catFriendly"
+          class="green check circle icon">
+        </i>
+        <i
+          ng-if="!selectedUser.confirmation.catFriendly"
+          class="red remove circle icon">
+        </i>
+      </div>
+
+      <div class="field">
+        <strong> Smoking Friendly </strong>
+        <i
+          ng-if="selectedUser.confirmation.smokingFriendly"
+          class="green check circle icon">
+        </i>
+        <i
+          ng-if="!selectedUser.confirmation.smokingFriendly"
+          class="red remove circle icon">
+        </i>
+      </div>
+
+      <div class="field">
+        <label> Hosting Notes </label>
+        <textarea ng-model="selectedUser.confirmation.hostNotes"></textarea>
+      </div>
+
+      <div class="ui divider"></div>
+
+      <div class="ui header">
+        Travel
+      </div>
+
+      <div class="field">
+        <strong> Needs Reimbursement</strong>
+        <i
+          ng-if="selectedUser.confirmation.needsReimbursement"
+          class="green check circle icon">
+        </i>
+        <i
+          ng-if="!selectedUser.confirmation.needsReimbursement"
+          class="red remove circle icon">
+        </i>
       </div>
 
       <div class="field">
